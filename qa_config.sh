@@ -17,3 +17,14 @@ apt-get -qqy install php5
 apt-get -qqy install libapache2-mod-php5
 # Install Mcrypt for PHP
 apt-get -qqy install php5-mcrypt
+
+# Use Debconf for unattended phpMyAdmin installation
+debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
+debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean true'
+debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password SuperSecretPasswordString'
+debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password vanilla'
+debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password vanilla'
+# Install phpMyAdmin and Apache utilities
+apt-get -qqy install phpmyadmin apache2-utils
+# Add phpMyAdmin to Apache configuration
+echo 'Include /etc/phpmyadmin/apache.conf' >> /etc/apache2/apache2.conf
