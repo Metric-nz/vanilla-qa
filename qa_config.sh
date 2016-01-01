@@ -30,4 +30,8 @@ apt-get -qqy install phpmyadmin apache2-utils
 # Add phpMyAdmin to Apache configuration
 echo 'Include /etc/phpmyadmin/apache.conf' >> /etc/apache2/apache2.conf
 
+# Restart Apache
 service apache2 restart
+
+MOTD="[36m[1mHappy New Year![m"
+echo -e $MOTD > /etc/motd
