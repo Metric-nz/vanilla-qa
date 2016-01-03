@@ -1,5 +1,3 @@
-#!/bin/bash
-
 MYSQL_ROOT_PW='secretpassword'
 PHPMYADMIN_PW='secretphppw'
 
@@ -38,5 +36,5 @@ echo 'Include /etc/phpmyadmin/apache.conf' >> /etc/apache2/apache2.conf
 # Restart Apache
 service apache2 restart
 
-MOTD="[36m[1mVanillaQA At Your Service...[m"
+MOTD="\033[36m\033[1mVanillaQA At Your Service...\033[m"
 echo -e $MOTD > /etc/motd
