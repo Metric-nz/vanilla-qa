@@ -38,3 +38,6 @@ service apache2 restart
 
 MOTD="\033[36m\033[1mVanillaQA At Your Service...\033[m"
 echo -e $MOTD > /etc/motd
+
+# Disable Root SSH
+sed -i 's/permitrootlogin.*/PermitRootLogin no/gI' /etc/ssh/sshd_config
