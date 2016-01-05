@@ -1,3 +1,4 @@
+SERVERNAME='VanillaQA'
 MYSQL_ROOT_PW='secretpassword'
 PHPMYADMIN_PW='secretphppw'
 
@@ -5,6 +6,8 @@ apt-get -qqy update
 
 # Install Apache
 apt-get -qqy install apache2
+# Set ServerName
+echo -e "\nServerName \"${SERVERNAME}\"" >> /etc/apache2/apache2.conf
 
 # Use Debconf for unattended MySQL installation
 debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_ROOT_PW"
@@ -30,8 +33,6 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PHPMY
 debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PHPMYADMIN_PW"
 # Install phpMyAdmin and Apache utilities
 apt-get -qqy install phpmyadmin apache2-utils
-# Add phpMyAdmin to Apache configuration
-echo 'Include /etc/phpmyadmin/apache.conf' >> /etc/apache2/apache2.conf
 
 # Restart Apache
 service apache2 restart
@@ -41,3 +42,4 @@ echo -e $MOTD > /etc/motd
 
 # Disable Root SSH
 sed -i 's/permitrootlogin.*/PermitRootLogin no/gI' /etc/ssh/sshd_config
+service ssh restart
