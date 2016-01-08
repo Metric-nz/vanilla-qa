@@ -29,6 +29,8 @@ apt-get -qqy install libapache2-mod-php5
 # Install Mcrypt for PHP
 apt-get -qqy install php5-mcrypt
 php5enmod mcrypt
+# Install cURL
+apt-get -qqy install php5-curl
 
 #--- phpMyAdmin ---#
 # Use Debconf for unattended phpMyAdmin installation
