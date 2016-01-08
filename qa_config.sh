@@ -42,6 +42,9 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password 
 # Install phpMyAdmin and Apache utilities
 apt-get -qqy install phpmyadmin apache2-utils
 
+#--- Git ---#
+apt-get -qqy install git
+
 #--- Composer ---#
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer # Install globally as `composer`
 
