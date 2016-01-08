@@ -42,6 +42,13 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password 
 # Install phpMyAdmin and Apache utilities
 apt-get -qqy install phpmyadmin apache2-utils
 
+#--- Composer ---#
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer # Install globally as `composer`
+
+#--- Vanilla Forum ---#
+git clone https://github.com/vanilla/vanilla.git /vanillaforum # Clones Vanilla repository into `/vanillaforum`
+composer install -d /vanillaforum # Use Composer to build Vanilla repository
+
 # Restart Apache
 service apache2 restart
 
