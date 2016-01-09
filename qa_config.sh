@@ -51,6 +51,7 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 #--- Vanilla Forum ---#
 git clone https://github.com/vanilla/vanilla.git /vanillaforum # Clones Vanilla repository into `/vanillaforum`
 composer install -d /vanillaforum # Use Composer to build Vanilla repository
+chmod -R 777  /vanillaforum/conf /vanillaforum/cache /vanillaforum/uploads
 
 # Restart Apache
 service apache2 restart
