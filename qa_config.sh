@@ -11,6 +11,8 @@ apt-get -qqy update
 apt-get -qqy install apache2
 # Set ServerName
 echo -e "\nServerName \"${SERVERNAME}\"" >> /etc/apache2/apache2.conf
+# Enable mod_rewrite for more readable URL's
+a2enmod rewrite
 
 #--- MySQL ---#
 # Use Debconf for unattended MySQL installation
