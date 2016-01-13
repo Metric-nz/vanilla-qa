@@ -2,6 +2,8 @@
 SERVERNAME='VanillaQA'
 MYSQL_ROOT_PW='secretpassword'
 PHPMYADMIN_PW='secretphppw'
+VANLLA_USER_PW='secretapppassword'
+DB_BACKUP_NAME='localhost.sql'
 MOTD='VanillaQA at your service...'
 
 apt-get -qqy update
@@ -55,6 +57,12 @@ git clone https://github.com/vanilla/vanilla.git /vanillaforum # Clones Vanilla 
 composer install -d /vanillaforum # Use Composer to build Vanilla repository
 chmod -R 777 /vanillaforum/conf /vanillaforum/cache /vanillaforum/uploads # Grants necessary permissions
 cp /vanilla/apache.conf /etc/apache2/sites-available/000-default.conf # Update DocumentRoot and <Directory >
+# Load the MySQL backup if applicable, otherwise create a new database
+if [ -f /vanilla/$DB_BACKUP_NAME ];
+then
+    mysql -uroot -p$MYSQL_ROOT_PW < $DB_BACKUP_NAME
+else
+    mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS vanilla_db;"
 
 # Restart Apache
 service apache2 restart
