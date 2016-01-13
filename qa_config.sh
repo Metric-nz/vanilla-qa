@@ -60,7 +60,7 @@ cp /vanilla/apache.conf /etc/apache2/sites-available/000-default.conf # Update D
 # Load the MySQL backup if applicable, otherwise create a new database
 if [ -f /vanilla/$DB_BACKUP_NAME ];
 then
-    mysql -uroot -p$MYSQL_ROOT_PW < $DB_BACKUP_NAME
+    mysql -uroot -p$MYSQL_ROOT_PW < /vanilla/$DB_BACKUP_NAME
 else
     mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS vanilla_db;"
 fi
