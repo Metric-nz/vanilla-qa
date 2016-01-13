@@ -63,6 +63,7 @@ then
     mysql -uroot -p$MYSQL_ROOT_PW < $DB_BACKUP_NAME
 else
     mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS vanilla_db;"
+fi
 
 # Restart Apache
 service apache2 restart
