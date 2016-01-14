@@ -2,8 +2,9 @@
 SERVERNAME='VanillaQA'
 MYSQL_ROOT_PW='secretpassword'
 PHPMYADMIN_PW='secretphppw'
-VANLLA_USER_PW='secretapppassword'
+VANILLA_USER_PW='secretapppassword'
 DB_BACKUP_NAME='localhost.sql'
+DB_NAME='vanilla_test'
 MOTD='VanillaQA at your service...'
 
 apt-get -qqy update
@@ -61,6 +62,9 @@ cp /vanilla/apache.conf /etc/apache2/sites-available/000-default.conf # Update D
 if [ -f /vanilla/$DB_BACKUP_NAME ];
 then
     mysql -uroot -p$MYSQL_ROOT_PW < /vanilla/$DB_BACKUP_NAME
+    mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE USER 'vanilla_user'@'localhost' IDENTIFIED BY '$VANILLA_USER_PW';
+                                      GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'vanilla_user'@'localhost';
+                                      FLUSH PRIVILEGES;"
 else
     mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS vanilla_db;"
 fi
