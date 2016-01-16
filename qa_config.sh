@@ -57,7 +57,10 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 git clone https://github.com/vanilla/vanilla.git /vanillaforum # Clones Vanilla repository into `/vanillaforum`
 composer install -d /vanillaforum # Use Composer to build Vanilla repository
 chmod -R 777 /vanillaforum/conf /vanillaforum/cache /vanillaforum/uploads # Grants necessary permissions
-cp /vanilla/apache.conf /etc/apache2/sites-available/000-default.conf # Update DocumentRoot and <Directory >
+cp /vanilla/apache.conf /etc/apache2/sites-available/vanilla_forum.conf # Update DocumentRoot and <Directory >
+rm /etc/apache2/sites-available/000-default.conf # Remove default configuration
+ln -s /etc/apache2/sites-available/vanilla_forum.conf /etc/apache2/sites-enabled/vanilla_forum.conf # Symlink vanilla_forum.conf
+rm /etc/apache2/sites-enabled/000-default.conf # Remove default symlink
 # Load the MySQL backup if applicable, otherwise create a new database
 if [ -f /vanilla/$DB_BACKUP_NAME ];
 then
