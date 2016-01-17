@@ -62,14 +62,15 @@ rm /etc/apache2/sites-available/000-default.conf # Remove default configuration
 ln -s /etc/apache2/sites-available/vanilla_forum.conf /etc/apache2/sites-enabled/vanilla_forum.conf # Symlink vanilla_forum.conf
 rm /etc/apache2/sites-enabled/000-default.conf # Remove default symlink
 # Load the MySQL backup if applicable, otherwise create a new database
+mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;" # Create a database for testing
 if [ -f /vanilla/$DB_BACKUP_NAME ];
 then
-    mysql -uroot -p$MYSQL_ROOT_PW < /vanilla/$DB_BACKUP_NAME
+    mysql -uroot -p$MYSQL_ROOT_PW $DB_NAME < /vanilla/$DB_BACKUP_NAME # Load SQL backup into specified database ($DB_NAME)
     mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE USER 'vanilla_user'@'localhost' IDENTIFIED BY '$VANILLA_USER_PW';
                                       GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'vanilla_user'@'localhost';
                                       FLUSH PRIVILEGES;"
 else
-    mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS vanilla_db;"
+    echo "No database backup found..." # Temporary message
 fi
 
 # Restart Apache
