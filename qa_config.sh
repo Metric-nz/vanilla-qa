@@ -9,6 +9,14 @@ MOTD='VanillaQA at your service...'
 
 apt-get -qqy update
 
+#--- UFW ---#
+ufw default deny incoming # Deny all incoming connections on all ports
+ufw default allow outgoing # Allow all outgoing connections on all ports
+ufw allow ssh # Allow connections on default SSH port (22)
+ufw allow http # Allow connections on default HTTP port (80)
+ufw allow https # Allow connections on default HTTPS port (443)
+ufw enable # Enable Uncomplicated Firewall
+
 #--- Apache ---#
 # Install Apache
 apt-get -qqy install apache2
