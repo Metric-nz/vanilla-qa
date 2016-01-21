@@ -6,7 +6,9 @@ nodes = [
 ]
 
 Vagrant.configure(2) do |config|
-    config.hostmanager.enabled = true
+    if Vagrant.has_plugin?("vagrant-hostmanager")
+        config.hostmanager.enabled = true
+    end       
     nodes.each do |node|
         config.vm.define node[:hostname] do |nodeconfig|
             nodeconfig.vm.provision :shell, path: node[:config], :args => node[:syncguest]
