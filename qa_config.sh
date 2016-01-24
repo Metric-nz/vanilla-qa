@@ -18,8 +18,8 @@ ufw allow https # Allow connections on default HTTPS port (443)
 ufw --force enable # Enable Uncomplicated Firewall
 
 #--- Apache ---#
-# Install Apache
-apt-get -qqy install apache2
+# Install Apache and Apache utilities
+apt-get -qqy install apache2 apache2-utils
 # Set ServerName
 echo -e "\nServerName \"${SERVERNAME}\"" >> /etc/apache2/apache2.conf
 # Enable mod_rewrite for more readable URL's
@@ -52,8 +52,8 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $MYSQL_ROOT_PW"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PHPMYADMIN_PW"
 debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PHPMYADMIN_PW"
-# Install phpMyAdmin and Apache utilities
-apt-get -qqy install phpmyadmin apache2-utils
+# Install phpMyAdmin
+apt-get -qqy install phpmyadmin
 
 #--- Git ---#
 apt-get -qqy install git
