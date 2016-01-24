@@ -8,7 +8,7 @@ nodes = [
 Vagrant.configure(2) do |config|
     if Vagrant.has_plugin?("vagrant-hostmanager")
         config.hostmanager.enabled = true
-    end       
+    end
     nodes.each do |node|
         config.vm.define node[:hostname] do |nodeconfig|
             nodeconfig.vm.provision :shell, path: node[:config], :args => node[:syncguest]
@@ -20,6 +20,7 @@ Vagrant.configure(2) do |config|
 
             nodeconfig.vm.provider :virtualbox do |v|
                 v.name = node[:hostname]
+                v.memory = 1024
             end
         end
     end
