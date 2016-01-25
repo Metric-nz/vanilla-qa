@@ -73,7 +73,7 @@ mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;" # Cre
 mysql -uroot -p$MYSQL_ROOT_PW -e "CREATE USER 'vanilla_user'@'localhost' IDENTIFIED BY '$VANILLA_USER_PW';
                                   GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'vanilla_user'@'localhost';
                                   FLUSH PRIVILEGES;"
-if [ -f /vanilla/$DB_BACKUP_NAME ];
+if [ -f /vanilla/$DB_BACKUP_NAME ]; # If the specified backup exists in /vanilla/
 then
     mysql -uroot -p$MYSQL_ROOT_PW $DB_NAME < /vanilla/$DB_BACKUP_NAME # Load SQL backup into specified database ($DB_NAME)
 else
