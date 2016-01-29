@@ -86,6 +86,6 @@ service apache2 restart
 # Set Message of the Day
 echo -e "\033[36m\033[1m$MOTD\033[m" > /etc/motd
 
-# Disable Root SSH
-sed -i 's/permitrootlogin.*/PermitRootLogin no/gI' /etc/ssh/sshd_config
+# Disable Root SSH login with password
+sed -i 's/permitrootlogin.*/PermitRootLogin without-password/gI' /etc/ssh/sshd_config
 service ssh restart
