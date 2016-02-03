@@ -1,11 +1,11 @@
 #--- Global Variables ---#
-SERVERNAME='VanillaQA'
+SERVERNAME='vanillaqa'
 MYSQL_ROOT_PW='secretpassword'
 PHPMYADMIN_PW='secretphppw'
 VANILLA_USER_PW='secretapppassword'
 DB_BACKUP_NAME='localhost.sql'
 DB_NAME='vanilla_test'
-MOTD='VanillaQA at your service...'
+MOTD=$SERVERNAME' at your service...'
 
 apt-get -qqy update
 
