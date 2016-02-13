@@ -5,4 +5,4 @@ tar -xf go1.5.3.linux-amd64.tar.gz
 # Move installation
 mv go /usr/local
 # Set Go path
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/vagrant/.profile
