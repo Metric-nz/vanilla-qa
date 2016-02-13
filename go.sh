@@ -1,5 +1,5 @@
 # Pull Go package
-curl -O https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz
+curl -sO https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz
 # Unpack package
 tar -xf go1.5.3.linux-amd64.tar.gz
 # Move installation
