@@ -1,3 +1,4 @@
+#--- Prometheus Server ---#
 # Get package archive for Prometheus
 wget -q "https://github.com/prometheus/prometheus/releases/download/0.15.1/prometheus-0.15.1.linux-amd64.tar.gz" -P /prometheus
 # Create installation directory
