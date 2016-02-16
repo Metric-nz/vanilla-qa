@@ -17,7 +17,6 @@ Vagrant.configure(2) do |config|
             nodeconfig.vm.network :private_network, ip: node[:ip]
             nodeconfig.vm.synced_folder ".", "/vagrant", disabled: true
             nodeconfig.vm.synced_folder node[:synchost], node[:syncguest]
-            nodeconfig.vm.synced_folder "prometheus/", "/prometheus"
 
             nodeconfig.vm.provider :virtualbox do |v|
                 v.name = node[:hostname]
