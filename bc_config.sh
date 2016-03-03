@@ -9,3 +9,11 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password $MY
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PW"
 # Install MySQL Server
 apt-get -qqy install mysql-server
+
+#--- Bacula ---#
+# Debconf selections for Bacula installation
+
+# Install Bacula Server
+apt-get -qqy install bacula-server
+# Install Bacula Client
+apt-get -qqy install bacula-client
