@@ -30,4 +30,4 @@ chmod 755 /etc/bacula/scripts/delete_catalog_backup
 mkdir -p /bacula/backup /bacula/restore
 # Change permissions on backup and restore directories
 chown -R bacula:bacula /bacula
-chmod -R /bacula
+chmod -R 700 /bacula
