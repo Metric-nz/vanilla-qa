@@ -3,7 +3,7 @@
 
 nodes = [
   { :hostname => "vanillaqa", :box => "ubuntu/trusty64", :config => "qa_config.sh", :ip => "172.22.22.22", :synchost => "vanilla/", :syncguest => "/vanilla"},
-  { :hostname => "bacula",    :box => "ubuntu/trusty64", :config => "bc_config.sh", :ip => "172.22.44.44", :synchost => "bacula/",  :syncguest => "/bacula"}
+  { :hostname => "snackula",  :box => "ubuntu/trusty64", :config => "bc_config.sh", :ip => "172.22.44.44", :synchost => "bacula/",  :syncguest => "/bacula"}
 ]
 
 Vagrant.configure(2) do |config|
