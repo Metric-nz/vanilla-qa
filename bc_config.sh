@@ -1,5 +1,7 @@
 #--- Global Variables ---#
-$MYSQL_ROOT_PW='baculamysqlpassword'
+SERVERNAME='snackula'
+MYSQL_ROOT_PW='snackulamysqlpassword'
+BACULA_DB_PW='secretbaculapassword'
 
 apt-get -qqy update
 
@@ -12,7 +14,12 @@ apt-get -qqy install mysql-server
 
 #--- Bacula ---#
 # Debconf selections for Bacula installation
-
+debconf-set-selections <<< "postfix postfix/mailname string $SERVERNAME.example.com"
+debconf-set-selections <<< "postfix postfix/main_mailer_type select Internet Site"
+debconf-set-selections <<< "bacula-director-mysql bacula-director-mysql/dbconfig-install boolean true"
+debconf-set-selections <<< "bacula-director-mysql bacula-director-mysql/mysql/admin-pass password $MYSQL_ROOT_PW"
+debconf-set-selections <<< "bacula-director-mysql bacula-director-mysql/mysql/app-pass password $BACULA_DB_PW"
+debconf-set-selections <<< "bacula-director-mysql bacula-director-mysql/app-password-confirm password $BACULA_DB_PW"
 # Install Bacula Server
 apt-get -qqy install bacula-server
 # Install Bacula Client
