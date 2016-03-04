@@ -24,3 +24,5 @@ debconf-set-selections <<< "bacula-director-mysql bacula-director-mysql/app-pass
 apt-get -qqy install bacula-server
 # Install Bacula Client
 apt-get -qqy install bacula-client
+# Adjust permissions of script used during catalog backup
+chmod 755 /etc/bacula/scripts/delete_catalog_backup
