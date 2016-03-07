@@ -2,8 +2,20 @@
 # vi: set ft=ruby :
 
 nodes = [
-  { :hostname => "vanillaqa", :box => "ubuntu/trusty64", :config => "qa_config.sh", :ip => "172.22.22.22", :synchost => "vanilla/", :syncguest => "/vanilla"},
-  { :hostname => "snackula",  :box => "ubuntu/trusty64", :config => "bc_config.sh", :ip => "172.22.44.44", :synchost => "bacula/",  :syncguest => "/bacula-conf"}
+  { :hostname   => "vanillaqa",
+    :box        => "ubuntu/trusty64",
+    :config     => "qa_config.sh",
+    :ip         => "172.22.22.22",
+    :synchost   => "vanilla/",
+    :syncguest  => "/vanilla",
+  },
+  { :hostname   => "snackula",
+    :box        => "ubuntu/trusty64",
+    :config     => "bc_config.sh",
+    :ip         => "172.22.44.44",
+    :synchost   => "bacula/",
+    :syncguest  => "/bacula-conf",
+  },
 ]
 
 Vagrant.configure(2) do |config|
