@@ -2,19 +2,19 @@
 # vi: set ft=ruby :
 
 nodes = [
-  { :hostname   => "vanillaqa",
-    :box        => "ubuntu/trusty64",
-    :config     => "qa_config.sh",
-    :ip         => "172.22.22.22",
-    :synchost   => "vanilla/",
-    :syncguest  => "/vanilla",
+  { hostname:  "vanillaqa",
+    box:       "ubuntu/trusty64",
+    config:    "qa_config.sh",
+    ip:        "172.22.22.22",
+    synchost:  "vanilla/",
+    syncguest: "/vanilla",
   },
-  { :hostname   => "snackula",
-    :box        => "ubuntu/trusty64",
-    :config     => "bc_config.sh",
-    :ip         => "172.22.44.44",
-    :synchost   => "bacula/",
-    :syncguest  => "/bacula-conf",
+  { hostname:  "snackula",
+    box:       "ubuntu/trusty64",
+    config:    "bc_config.sh",
+    ip:        "172.22.44.44",
+    synchost:  "bacula/",
+    syncguest: "/bacula-conf",
   },
 ]
 
@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
   end
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.provision :shell, path: node[:config], :args => node[:syncguest]
+      nodeconfig.vm.provision :shell, path: node[:config], args: node[:syncguest]
       nodeconfig.vm.box = node[:box]
       nodeconfig.vm.hostname = node[:hostname]
       nodeconfig.vm.network :private_network, ip: node[:ip]
