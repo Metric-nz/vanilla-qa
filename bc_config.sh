@@ -31,3 +31,7 @@ mkdir -p /bacula/backup /bacula/restore
 # Change permissions on backup and restore directories
 chown -R bacula:bacula /bacula
 chmod -R 700 /bacula
+# Create directory to hold individual configuration files
+mkdir -p /etc/bacula/conf.d
+# Copy configuration files into directory
+cp -a /bacula/. /etc/bacula/conf.d/
