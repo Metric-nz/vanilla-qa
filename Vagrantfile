@@ -12,7 +12,7 @@ nodes = [
   { hostname:  "snackula",
     box:       "ubuntu/trusty64",
     config:    "bc_config.sh",
-    ip:        "172.22.44.44",
+    ip:        "172.22.22.33",
     synchost:  "bacula/",
     syncguest: "/bacula-conf",
   },
