@@ -5,7 +5,7 @@ nodes = [
   { hostname:  "vanillaqa",
     ip:        "172.22.22.22"
   },
-  { hostname:  "snackula",
+  { hostname:  "holocron",
     ip:        "172.22.22.33"
   },
 ]
