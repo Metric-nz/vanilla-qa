@@ -3,31 +3,20 @@
 
 nodes = [
   { hostname:  "vanillaqa",
-    box:       "ubuntu/trusty64",
-    config:    "qa_config.sh",
-    ip:        "172.22.22.22",
-    synchost:  "vanilla/",
-    syncguest: "/vanilla",
+    ip:        "172.22.22.22"
   },
-  { hostname:  "snackula",
-    box:       "ubuntu/trusty64",
-    config:    "bc_config.sh",
-    ip:        "172.22.22.33",
-    synchost:  "bacula/",
-    syncguest: "/bacula-conf",
+  { hostname:  "holocron",
+    ip:        "172.22.22.33"
   },
 ]
 
 Vagrant.configure(2) do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.provision :shell, path: node[:config]
-      nodeconfig.vm.box = node[:box]
+      nodeconfig.vm.box = "ubuntu/trusty64"
       nodeconfig.vm.hostname = node[:hostname]
       nodeconfig.vm.network :private_network, ip: node[:ip]
       nodeconfig.vm.synced_folder ".", "/vagrant", disabled: true
-      nodeconfig.vm.synced_folder node[:synchost], node[:syncguest]
-
       nodeconfig.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
         v.memory = 1024

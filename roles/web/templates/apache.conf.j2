@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+
+    ServerAdmin whatever@example.com
+    DocumentRoot {{ project_path }}
+
+    <Directory {{ project_path }}>
+        AllowOverride all
+        Require all granted
+    </Directory>
+
+    ErrorLog {{ log_path }}/error.log
+    CustomLog {{ log_path }}/access.log combined
+
+</VirtualHost>
