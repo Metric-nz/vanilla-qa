@@ -1,0 +1,20 @@
+---
+
+# User
+deploy_user: "vagrant"
+
+# PHP Application
+git_repo: "https://github.com/vanilla/vanilla"
+project_name: "vanilla-forum"
+project_path: "/var/www/{{ project_name }}/"
+log_path: "{{ project_path }}/logs/"
+
+project_user: "vanillauser"
+project_group: "vanillagroup"
+project_user_password: "$6$sodiumchloride$24iRTIubgxI1FRbv6AhLMp8PQRYKzcIlb1m34ZZdPpor1fVEjfJaEmWzekpx8wts3gNG4JuvOxBitLmRsYHm70" # 'vanillauser'
+
+# Database
+mysql_root_pw: "supersecretpassword"
+phpmyadmin_pw: "secretphpmyadminpassword"
+
+db_name: "vanilla_test"
