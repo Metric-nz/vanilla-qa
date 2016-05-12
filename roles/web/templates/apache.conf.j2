@@ -1,14 +1,14 @@
 <VirtualHost *:80>
 
-    ServerAdmin vanillaqa@localhost
-    DocumentRoot /vanillaforum
+    ServerAdmin whatever@example.com
+    DocumentRoot {{ project_path }}
 
-    <Directory /vanillaforum>
+    <Directory {{ project_path }}>
         AllowOverride all
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog {{ log_path }}/error.log
+    CustomLog {{ log_path }}/access.log combined
 
 </VirtualHost>
