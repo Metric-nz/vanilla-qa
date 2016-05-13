@@ -7,3 +7,5 @@
       - curl
       - htop
       - tree
+      - ufw
+      - fail2ban
