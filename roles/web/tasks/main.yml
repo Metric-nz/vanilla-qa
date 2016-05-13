@@ -3,7 +3,15 @@
 # Mega-module before being broken down into subs
 
 # UFW
+- name: Lockdown with UFW
+  ufw: state=enabled policy=deny logging=on
 
+- name: UFW - Enable incoming items
+  ufw: rule=allow name={{ item }}
+  with_items:
+    - ssh
+    - http
+    - https
 
 # Apache
 
