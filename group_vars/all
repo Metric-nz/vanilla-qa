@@ -5,8 +5,9 @@ deploy_user: "vagrant"
 
 # PHP Application
 git_repo: "https://github.com/vanilla/vanilla"
+git_path: "/var/www/"
 project_name: "vanilla-forum"
-project_path: "/var/www/{{ project_name }}/"
+project_path: "{{ git_path }}/{{ project_name }}/"
 log_path: "{{ project_path }}/logs/"
 
 project_user: "vanillauser"
