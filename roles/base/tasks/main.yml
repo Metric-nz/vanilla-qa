@@ -1,1 +1,9 @@
 ---
+
+- name: Install apt packages
+  apt: name={{ item }} update_cache=yes state=present
+  with_items:
+      - git
+      - curl
+      - htop
+      - tree
