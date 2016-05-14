@@ -26,11 +26,8 @@
     - restart apache2
 
 # MySQL client
-- name: Set MySQL debconf root password
-  debconf: name=mysql-server question=mysql-server/root_password value={{ mysql_root_pw }} vtype=password
 
-- name: Confirm MySQL root password
-  debconf: name=mysql-server question=mysql-server/root_password_again value={{ mysql_root_pw }} vtype=password
+
 # PHP
 
 
