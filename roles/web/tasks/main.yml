@@ -26,7 +26,8 @@
     - restart apache2
 
 # MySQL client
-
+- name: Install MySQL Client
+  apt: package=mysql-client state=present
 
 # PHP
 
