@@ -1,7 +1,10 @@
 ---
 
 - name: Install apt packages
-  apt: name={{ item }} update_cache=yes state=present
+  apt:
+    name: {{ item }}
+    update_cache: yes
+    state: present
   with_items:
       - git
       - curl
@@ -28,4 +31,6 @@
 
 handlers:
   - name: restart ssh
-    service: name=ssh state=restarted
+    service:
+      name: ssh
+      state: restarted

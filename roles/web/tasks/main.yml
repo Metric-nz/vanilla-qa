@@ -4,10 +4,15 @@
 
 # UFW
 - name: Lockdown with UFW
-  ufw: state=enabled policy=deny logging=on
+  ufw:
+    state: enabled
+    policy: deny
+    logging: on
 
 - name: UFW - Enable incoming items
-  ufw: rule=allow name={{ item }}
+  ufw:
+    rule: allow
+    name: {{ item }}
   with_items:
     - ssh
     - http
@@ -15,19 +20,25 @@
 
 # Apache
 - name: Install Apache
-  apt: name={{ item }} state=latest
+  apt:
+    name: {{ item }}
+    state: latest
   with_items:
     - apache2
     - apache2utils
 
 - name: Enable Apache mod_rewrite
-  apache2_module: name=rewrite state=present
+  apache2_module:
+    name: rewrite
+    state: present
   notify:
     - restart apache2
 
 # MySQL client
 - name: Install MySQL Client
-  apt: package=mysql-client state=present
+  apt:
+    package: mysql-client
+    state: present
 
 # PHP
 
