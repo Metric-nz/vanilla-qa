@@ -14,3 +14,13 @@
     question: mysql-server/root_password_again
     value: {{ mysql_root_pw }}
     vtype: password
+
+- name: Install MySQL
+  apt:
+    package: {{ item }}
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - mysql-server
+    - mysql-client
