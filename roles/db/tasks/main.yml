@@ -25,6 +25,12 @@
     - mysql-server
     - mysql-client
 
+- name: Start MySQL service
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
 - name: Remove anonymous MySQL user
   mysql_user:
     user: ""
