@@ -24,3 +24,10 @@
   with_items:
     - mysql-server
     - mysql-client
+
+- name: Remove anonymous MySQL user
+  mysql_user:
+    user: ""
+    state: absent
+    login_user: root
+    login_password: {{ mysql_root_pw }}
