@@ -1,0 +1,11 @@
+---
+
+- name: Clone git repository
+  git:
+    repo: "{{ git_repo }}"
+    dest: "{{ git_path }}"
+    force: yes
+
+- name: Build Vanilla with composer
+  shell: composer install -d {{ git_path }}
+  changed_when: false

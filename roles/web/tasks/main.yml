@@ -12,4 +12,4 @@
 
 - include: composer.yml
 
-# Vanilla Forum
+- include: vanilla.yml
