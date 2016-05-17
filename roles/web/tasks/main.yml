@@ -10,10 +10,6 @@
 
 - include: phpmyadmin.yml
 
-# Git
-
-
-# Composer
-
+- include: composer.yml
 
 # Vanilla Forum
