@@ -12,7 +12,7 @@
 - name: UFW - Enable incoming items
   ufw:
     rule: allow
-    name: {{ item }}
+    name: "{{ item }}"
   with_items:
     - ssh
     - http
@@ -21,7 +21,7 @@
 # Apache
 - name: Install Apache
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
   with_items:
     - apache2
@@ -43,7 +43,7 @@
 # PHP
 - name: Install PHP packages
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   with_items:
     - php5
