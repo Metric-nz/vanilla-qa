@@ -1,17 +1,11 @@
 ---
 
-# Mega-module before being broken down into subs
-
-# UFW
 - include: ufw.yml
 
-# Apache
 - include: apache.yml
 
-# MySQL client
 - include: mysql.yml
 
-# PHP
 - include: php.yml
 
 # phpMyAdmin
