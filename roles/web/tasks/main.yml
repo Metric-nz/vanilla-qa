@@ -8,8 +8,7 @@
 
 - include: php.yml
 
-# phpMyAdmin
-
+- include: phpmyadmin.yml
 
 # Git
 
