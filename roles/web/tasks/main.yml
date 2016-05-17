@@ -3,58 +3,16 @@
 # Mega-module before being broken down into subs
 
 # UFW
-- name: Lockdown with UFW
-  ufw:
-    state: enabled
-    policy: deny
-    logging: on
-
-- name: UFW - Enable incoming items
-  ufw:
-    rule: allow
-    name: "{{ item }}"
-  with_items:
-    - ssh
-    - http
-    - https
+- include: ufw.yml
 
 # Apache
-- name: Install Apache
-  apt:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - apache2
-    - apache2utils
-
-- name: Enable Apache mod_rewrite
-  apache2_module:
-    name: rewrite
-    state: present
-  notify:
-    - restart apache2
+- include: apache.yml
 
 # MySQL client
-- name: Install MySQL Client
-  apt:
-    package: mysql-client
-    state: present
+- include: mysql.yml
 
 # PHP
-- name: Install PHP packages
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - php5
-    - libapache2-mod-php5
-    - php5mcrypt
-    - php5-curl
-
-- name: Enable PHP5 mcrypt
-  shell: php5enmod mcrypt
-  args:
-    creates: /etc/php5/cli/conf.d/20-mcrypt.ini
+- include: php.yml
 
 # phpMyAdmin
 

@@ -1,1 +1,16 @@
 ---
+
+- name: Install Apache
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apache2
+    - apache2utils
+
+- name: Enable Apache mod_rewrite
+  apache2_module:
+    name: rewrite
+    state: present
+  notify:
+    - restart apache2

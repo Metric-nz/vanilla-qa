@@ -1,1 +1,6 @@
 ---
+
+- name: Install MySQL Client
+  apt:
+    package: mysql-client
+    state: present
