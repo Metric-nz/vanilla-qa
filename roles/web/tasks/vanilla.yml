@@ -1,5 +1,10 @@
 ---
 
+- name: Clean Apache test page
+  file:
+    path: "{{ git_path }}/index.html"
+    state: absent
+
 - name: Clone git repository
   git:
     repo: "{{ git_repo }}"

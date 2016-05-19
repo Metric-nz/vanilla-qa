@@ -7,7 +7,7 @@
   with_items:
     - php5
     - libapache2-mod-php5
-    - php5mcrypt
+    - php5-mcrypt
     - php5-curl
 
 - name: Enable PHP5 mcrypt
