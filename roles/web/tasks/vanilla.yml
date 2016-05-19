@@ -2,7 +2,7 @@
 
 - name: Clean Apache test page
   file:
-    path: "{{ git_path }}/index.html"
+    path: "{{ git_path }}/html/"
     state: absent
 
 - name: Clone git repository
