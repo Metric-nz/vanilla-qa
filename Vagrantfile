@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Change this variable to the location of your testing public key if necessary.
+ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
+
 nodes = [
   { hostname:  "vanillaqa",
     ip:        "172.22.22.22"
@@ -17,6 +20,8 @@ Vagrant.configure(2) do |config|
       nodeconfig.vm.hostname = node[:hostname]
       nodeconfig.vm.network :private_network, ip: node[:ip]
       nodeconfig.vm.synced_folder ".", "/vagrant", disabled: true
+      nodeconfig.vm.provision :shell, inline: "echo #{ssh_pub_key} >> /root/.ssh/authorized_keys"
+      nodeconfig.vm.provision :shell, inline: "echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys"
       nodeconfig.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
         v.memory = 1024
