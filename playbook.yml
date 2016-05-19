@@ -3,3 +3,8 @@
   become: true
   become_method: sudo
   remote_user: "vagrant"
+
+  roles:
+    - base
+    - db
+    - web
