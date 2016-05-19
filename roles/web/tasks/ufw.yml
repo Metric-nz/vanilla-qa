@@ -4,7 +4,7 @@
   ufw:
     state: enabled
     policy: deny
-    logging: on
+    logging: "on"
 
 - name: UFW - Enable ssh
   ufw:
