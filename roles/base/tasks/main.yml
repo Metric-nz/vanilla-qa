@@ -13,6 +13,7 @@
       - tree
       - ufw
       - fail2ban
+      - python-mysqldb
 
 - name: Ditch password SSH authentication
   lineinfile:
