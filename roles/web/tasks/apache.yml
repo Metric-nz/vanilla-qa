@@ -6,7 +6,7 @@
     state: latest
   with_items:
     - apache2
-    - apache2utils
+    - apache2-utils
 
 - name: Enable Apache mod_rewrite
   apache2_module:
