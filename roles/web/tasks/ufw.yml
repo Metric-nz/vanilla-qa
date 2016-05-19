@@ -6,17 +6,11 @@
     policy: deny
     logging: "on"
 
-- name: UFW - Enable ssh
+- name: UFW - Enable ports
   ufw:
     rule: allow
-    name: ssh
-
-- name: UFW - Enable http
-  ufw:
-    rule: allow
-    name: http
-
-- name: UFW - Enable https
-  ufw:
-    rule: allow
-    name: https
+    port: "{{ item }}"
+  with_items:
+    - "22"
+    - "80"
+    - "443"
