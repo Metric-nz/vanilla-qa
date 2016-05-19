@@ -7,6 +7,7 @@
     question: mysql-server/root_password
     value: "{{ mysql_root_pw }}"
     vtype: password
+  changed_when: false
 
 - name: Confirm MySQL root password
   debconf:
@@ -14,6 +15,7 @@
     question: mysql-server/root_password_again
     value: "{{ mysql_root_pw }}"
     vtype: password
+  changed_when: false
 
 - name: Install MySQL
   apt:
