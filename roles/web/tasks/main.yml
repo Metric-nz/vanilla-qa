@@ -10,6 +10,4 @@
 
 - include: phpmyadmin.yml
 
-- include: composer.yml
-
 - include: vanilla.yml

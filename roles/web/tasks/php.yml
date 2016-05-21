@@ -20,3 +20,7 @@
   shell: pear channel-discover pear.phing.info && pear install phing/phing
   args:
     creates: /usr/bin/phing
+
+- name: Install composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  changed_when: false
