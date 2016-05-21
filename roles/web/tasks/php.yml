@@ -15,3 +15,8 @@
   shell: php5enmod mcrypt
   args:
     creates: /etc/php5/cli/conf.d/20-mcrypt.ini
+
+- name: Install phing via pear
+  shell: pear channel-discover pear.phing.info && pear install phing/phing
+  args:
+    creates: /usr/bin/phing
