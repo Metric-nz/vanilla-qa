@@ -15,4 +15,4 @@
   shell: phing
   args:
     chdir: "{{ git_path }}/build/"
-    creates: vanilla-*.txt
+    creates: vanilla-*.zip
