@@ -3,12 +3,15 @@
 # User
 deploy_user: "vagrant"
 
+# Apache
+web_root: "/var/www/"
+
 # PHP Application
 git_repo: "https://github.com/vanilla/vanilla"
-git_path: "/var/www/"
+git_path: "{{ web_root }}/tmp/"
 project_name: "vanilla-forum"
-project_path: "{{ git_path }}/{{ project_name }}/"
-log_path: "{{ project_path }}/logs/"
+project_path: "{{ web_root }}/{{ project_name }}/"
+log_path: "{{ web_root }}/logs/"
 
 project_user: "vanillauser"
 project_group: "vanillagroup"
