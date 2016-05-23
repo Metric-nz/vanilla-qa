@@ -3,3 +3,5 @@
 
 [db]
 172.22.22.33 ansible_ssh_user=vagrant
+172.22.22.44 ansible_ssh_user=vagrant
+172.22.22.55 ansible_ssh_user=vagrant
