@@ -11,6 +11,12 @@ nodes = [
   { hostname:  "holocron",
     ip:        "172.22.22.33"
   },
+  { hostname:  "replicron1",
+    ip:        "172.22.22.44"
+  },
+  { hostname:  "replicron2",
+    ip:        "172.22.22.55"
+  }
 ]
 
 Vagrant.configure(2) do |config|
