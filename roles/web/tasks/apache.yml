@@ -26,3 +26,17 @@
     creates: /etc/apache2/sites-enabled/{{ project_name }}.conf
   notify:
     - restart apache2
+
+- name: Disable default apache site
+  command: a2dissite 000-default.conf
+  args:
+    removes: /etc/apache2/sites-enabled/000-default.conf
+  notify:
+    - restart apache2
+
+- name: Clean Apache test page
+  file:
+    path: "{{ web_root }}/html/"
+    state: absent
+  notify:
+    - restart apache2
