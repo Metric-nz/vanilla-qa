@@ -27,3 +27,13 @@
     src: "{{ git_path }}/build/vanilla-*.zip" # This has to be an exact path, no wildcard
     dest: "{{ project_path }}"
     copy: no
+
+- name: Set permissions on Vanilla folders
+  file:
+    path: "{{project_path}}{{ item }}"
+    state: directory
+    mode: 0777
+  with_items:
+    - conf
+    - uploads
+    - cache
