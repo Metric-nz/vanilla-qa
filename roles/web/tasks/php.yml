@@ -22,5 +22,6 @@
     creates: /usr/bin/phing
 
 - name: Install composer
-  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-  changed_when: false
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  args:
+    creates: /usr/bin/composer
