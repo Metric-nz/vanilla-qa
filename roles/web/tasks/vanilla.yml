@@ -17,6 +17,11 @@
     chdir: "{{ git_path }}/build/"
     creates: vanilla-*.zip
 
+- name: Check that Vanilla Forum directory exists
+  file:
+    path: "{{ project_path }}"
+    state: directory    
+
 - name: Unpack built archive of Vanilla Forum
   unarchive:
     src: "{{ git_path }}/build/vanilla-*.zip"
