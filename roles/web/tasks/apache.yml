@@ -19,3 +19,10 @@
   template:
     src: vanilla_forum.conf.j2
     dest: /etc/apache2/sites-available/{{ project_name }}.conf
+
+- name: Enable {{ project_name }}
+  command: a2ensite {{ project_name }}
+  args:
+    creates: /etc/apache2/sites-enabled/{{ project_name }}.conf
+  notify:
+    - restart apache2
