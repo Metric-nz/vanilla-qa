@@ -14,3 +14,8 @@
     state: present
   notify:
     - restart apache2
+
+- name: Create virtual host file
+  template:
+    src: vanilla_forum.conf.j2
+    dest: /etc/apache2/sites-available/{{ project_name }}.conf
