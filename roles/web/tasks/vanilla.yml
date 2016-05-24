@@ -16,3 +16,9 @@
   args:
     chdir: "{{ git_path }}/build/"
     creates: vanilla-*.zip
+
+- name: Unpack built archive of Vanilla Forum
+  unarchive:
+    src: "{{ git_path }}/build/vanilla-*.zip"
+    dest: "{{ project_path }}"
+    copy: no
