@@ -4,7 +4,7 @@
 deploy_user: "vagrant"
 
 # Apache
-web_root: "/var/www/"
+web_root: "/var/www"
 
 # PHP Application
 git_repo: "https://github.com/vanilla/vanilla"
