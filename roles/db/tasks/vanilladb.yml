@@ -1,1 +1,6 @@
 ---
+
+- name: Prepare database for Vanilla
+  mysql_db:
+    name: "{{ db_name }}"
+    state: present
