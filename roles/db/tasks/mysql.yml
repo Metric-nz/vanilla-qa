@@ -1,0 +1,40 @@
+---
+  
+- name: Set MySQL debconf root password
+  debconf:
+    name: mysql-server
+    question: mysql-server/root_password
+    value: "{{ mysql_root_pw }}"
+    vtype: password
+  changed_when: false
+
+- name: Confirm MySQL root password
+  debconf:
+    name: mysql-server
+    question: mysql-server/root_password_again
+    value: "{{ mysql_root_pw }}"
+    vtype: password
+  changed_when: false
+
+- name: Install MySQL
+  apt:
+    package: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - mysql-server
+    - mysql-client
+
+- name: Start MySQL service
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Remove anonymous MySQL user
+  mysql_user:
+    user: ""
+    state: absent
+    login_user: root
+    login_password: "{{ mysql_root_pw }}"
