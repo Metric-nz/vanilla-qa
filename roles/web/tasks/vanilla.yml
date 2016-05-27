@@ -20,7 +20,7 @@
   shell: phing
   args:
     chdir: "{{ git_path }}/build/"
-    creates: vanilla-*.zip # Need the exact filename output of this sucker
+    creates: vanilla-*.zip
 
 - name: Register name and version of Phing output
   shell: ls /var/www/tmp/build | grep vanilla*
@@ -29,7 +29,7 @@
 
 - name: Unpack built archive of Vanilla Forum
   unarchive:
-    src: "{{ git_path }}/build/{{ vanilla_zip.stdout }}" # This has to be an exact path, no wildcard
+    src: "{{ git_path }}/build/{{ vanilla_zip.stdout }}"
     dest: "{{ project_path }}"
     copy: no
   args:
