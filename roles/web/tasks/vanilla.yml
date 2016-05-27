@@ -22,11 +22,18 @@
     chdir: "{{ git_path }}/build/"
     creates: vanilla-*.zip # Need the exact filename output of this sucker
 
+- name: Register name and version of Phing output
+  shell: ls /var/www/tmp/build | grep vanilla*
+  register: vanilla_zip
+  changed_when: false
+
 - name: Unpack built archive of Vanilla Forum
   unarchive:
-    src: "{{ git_path }}/build/vanilla-*.zip" # This has to be an exact path, no wildcard
+    src: "{{ git_path }}/build/{{ vanilla_zip.stdout }}" # This has to be an exact path, no wildcard
     dest: "{{ project_path }}"
     copy: no
+  args:
+    creates: "{{ project_path}}/index.php"
 
 - name: Set permissions on Vanilla folders
   file:
