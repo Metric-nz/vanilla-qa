@@ -44,3 +44,5 @@
     - conf
     - uploads
     - cache
+  notify:
+    - restart apache
