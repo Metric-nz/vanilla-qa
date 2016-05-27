@@ -45,4 +45,4 @@
     - uploads
     - cache
   notify:
-    - restart apache
+    - restart apache2
