@@ -46,3 +46,8 @@
     - cache
   notify:
     - restart apache2
+
+- name: Apply config template
+  template:
+    src: vanilla_forum.conf.j2
+    dest: "{{ project_path }}conf/config.php"
