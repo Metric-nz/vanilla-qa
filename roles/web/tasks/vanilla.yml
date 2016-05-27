@@ -49,5 +49,5 @@
 
 - name: Apply config template
   template:
-    src: vanilla_forum.conf.j2
+    src: config.php.j2
     dest: "{{ project_path }}conf/config.php"
