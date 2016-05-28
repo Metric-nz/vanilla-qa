@@ -6,3 +6,12 @@
     state: present
     login_user: "root"
     login_password: "{{ mysql_root_pw }}"
+
+- name: Grant access to {{ project_user }}
+  mysql_user:
+    name: "{{ project_user }}"
+    password: "{{ project_user_db_pw }}"
+    state: present
+    priv: "{{ db_name }}.*:ALL"
+    login_user: "root"
+    login_password: "{{ mysql_root_pw }}"
