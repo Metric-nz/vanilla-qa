@@ -35,6 +35,11 @@
   args:
     creates: "{{ project_path}}/index.php"
 
+- name: Apply config template
+  template:
+    src: config.php.j2
+    dest: "{{ project_path }}conf/config.php"
+
 - name: Set permissions on Vanilla folders
   file:
     path: "{{project_path}}{{ item }}"
@@ -46,8 +51,3 @@
     - cache
   notify:
     - restart apache2
-
-- name: Apply config template
-  template:
-    src: config.php.j2
-    dest: "{{ project_path }}conf/config.php"
