@@ -38,3 +38,9 @@
     state: absent
     login_user: root
     login_password: "{{ mysql_root_pw }}"
+
+- name: Apply configuration template
+  template:
+    src: remote.cnf.j2
+    dest: /etc/mysql/conf.d/remote.cnf
+    mode: 0644
