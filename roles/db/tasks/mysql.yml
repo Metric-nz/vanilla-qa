@@ -44,3 +44,5 @@
     src: remote.cnf.j2
     dest: /etc/mysql/conf.d/remote.cnf
     mode: 0644
+  notify:
+    - restart mysql
