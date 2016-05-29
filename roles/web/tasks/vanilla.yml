@@ -41,9 +41,18 @@
     dest: "{{ project_path }}conf/config.php"
     mode: 0777
 
+- name: Transfer ownership of {{ project_path }} to 'www-data'
+  file:
+    path: "{{ project_path }}"
+    state: directory
+    owner: "www-data"
+    group: "www-data"
+  notify:
+    - restart apache2
+
 - name: Set permissions on Vanilla folders
   file:
-    path: "{{project_path}}{{ item }}"
+    path: "{{ project_path }}{{ item }}"
     state: directory
     mode: 0777
   with_items:
