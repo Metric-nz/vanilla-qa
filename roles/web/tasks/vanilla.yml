@@ -39,6 +39,7 @@
   template:
     src: config.php.j2
     dest: "{{ project_path }}conf/config.php"
+    mode: 0777
 
 - name: Set permissions on Vanilla folders
   file:
