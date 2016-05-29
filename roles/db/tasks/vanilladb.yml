@@ -13,5 +13,6 @@
     password: "{{ project_user_db_pw }}"
     state: present
     priv: "{{ db_name }}.*:ALL"
+    host: "172.22.22.22"
     login_user: "root"
     login_password: "{{ mysql_root_pw }}"
