@@ -19,7 +19,7 @@ project_user_pw: "$6$sodiumchloride$24iRTIubgxI1FRbv6AhLMp8PQRYKzcIlb1m34ZZdPpor
 project_user_db_pw: "averysecretpassword"
 
 # Database
-db_host: "{{ [groups['db'][0]]['ansible_host'] }}"
+db_host: "{{ hostvars[groups['db'][0]]['ansible_host'] }}"
 mysql_root_pw: "supersecretpassword"
 phpmyadmin_pw: "secretphpmyadminpassword"
 
