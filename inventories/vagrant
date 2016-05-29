@@ -1,7 +1,7 @@
 [web]
-172.22.22.22 ansible_user=vagrant
+vanillaqa ansible_host=172.22.22.22 ansible_user=vagrant
 
 [db]
-172.22.22.33 ansible_user=vagrant
-172.22.22.44 ansible_user=vagrant
-172.22.22.55 ansible_user=vagrant
+holocron ansible_host=172.22.22.33 ansible_user=vagrant
+replicron1 ansible_host=172.22.22.44 ansible_user=vagrant
+replicron2 ansible_host=172.22.22.55 ansible_user=vagrant
