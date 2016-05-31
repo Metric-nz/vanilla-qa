@@ -1,18 +1,22 @@
 ---
+
+- hosts: all
+  become: true
+  become_method: sudo
+  remote_user: "vagrant"
+  roles:
+    - base
+
 - hosts: web
   become: true
   become_method: sudo
   remote_user: "vagrant"
-
   roles:
-    - base
     - web
 
 - hosts: db
   become: true
   become_method: sudo
   remote_user: "vagrant"
-
   roles:
-    - base
     - db
