@@ -1,10 +1,16 @@
 ---
 
 - name: Check if application is deployed
+  stat:
+    path: "{{ project_path }}/index.php"
+  register: app_deployed
 
-
-- name: Backup current application
-  
+- name: Get hash of current project git commit
+  shell: git rev-parse HEAD
+  args:
+      chdir: "{{ git_path }}"
+  register: git_commit
+  when: app_deployed.stat.exists
 
 - name: Clone git repository
   git:
