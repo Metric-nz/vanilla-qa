@@ -1,19 +1,13 @@
 ---
 
 - hosts: all
-  become: true
-  become_method: sudo
   roles:
     - base
 
 - hosts: web
-  become: true
-  become_method: sudo
   roles:
     - web
 
 - hosts: db
-  become: true
-  become_method: sudo
   roles:
     - db

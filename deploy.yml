@@ -1,7 +1,5 @@
 ---
 
 - hosts: web
-  become: true
-  become_method: sudo
   roles:
     - deploy
