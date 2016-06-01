@@ -1,0 +1,3 @@
+*.vagrant
+TODO.txt
+playbook.retry
