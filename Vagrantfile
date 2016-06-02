@@ -6,16 +6,16 @@ ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
 
 nodes = [
   { hostname:  "vanillaqa",
-    ip:        "172.22.22.22"
+    ip:        "172.22.22.21"
   },
   { hostname:  "holocron",
-    ip:        "172.22.22.33"
+    ip:        "172.22.22.31"
   },
   { hostname:  "replicron1",
-    ip:        "172.22.22.44"
+    ip:        "172.22.22.32"
   },
   { hostname:  "replicron2",
-    ip:        "172.22.22.55"
+    ip:        "172.22.22.33"
   }
 ]
 
