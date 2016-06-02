@@ -1,5 +1,6 @@
 [web]
-vanillaqa ansible_host=172.22.22.21 ansible_user=vagrant
+vanillaqa1 ansible_host=172.22.22.21 ansible_user=vagrant
+vanillaqa2 ansible_host=172.22.22.22 ansible_user=vagrant
 
 [master_db]
 holocron ansible_host=172.22.22.31 ansible_user=vagrant
