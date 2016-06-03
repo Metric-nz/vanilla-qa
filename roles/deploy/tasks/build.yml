@@ -1,1 +1,47 @@
 ---
+
+- name: Build Vanilla with Phing
+  shell: phing
+  args:
+    chdir: "{{ git_path }}/build/"
+    creates: vanilla-*.zip
+
+- name: Register name and version of Phing output
+  shell: ls /var/www/tmp/build | grep vanilla*
+  register: vanilla_zip
+  changed_when: false
+
+- name: Unpack built archive of Vanilla Forum
+  unarchive:
+    src: "{{ git_path }}/build/{{ vanilla_zip.stdout }}"
+    dest: "{{ project_path }}"
+    copy: no
+  args:
+    creates: "{{ project_path}}/index.php"
+
+- name: Apply config template
+  template:
+    src: config.php.j2
+    dest: "{{ project_path }}/conf/config.php"
+    mode: 0777
+
+- name: Transfer ownership of {{ project_path }} to 'www-data'
+  file:
+    path: "{{ project_path }}"
+    state: directory
+    owner: "www-data"
+    group: "www-data"
+  notify:
+    - restart apache2
+
+- name: Set permissions on Vanilla folders
+  file:
+    path: "{{ project_path }}/{{ item }}"
+    state: directory
+    mode: 0777
+  with_items:
+    - conf
+    - uploads
+    - cache
+  notify:
+    - restart apache2
