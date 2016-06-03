@@ -1,1 +1,7 @@
 ---
+
+- name: Get hash of current project git commit
+  shell: git rev-parse HEAD
+  args:
+      chdir: "{{ git_path }}"
+  register: git_commit

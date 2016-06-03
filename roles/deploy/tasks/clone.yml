@@ -1,1 +1,7 @@
 ---
+
+- name: Clone git repository
+  git:
+    repo: "{{ git_repo }}"
+    dest: "{{ git_path }}"
+    force: yes

@@ -13,19 +13,6 @@
   include: backup.yml
   when: app_deployed.stat.exists
 
-- name: Get hash of current project git commit
-  shell: git rev-parse HEAD
-  args:
-      chdir: "{{ git_path }}"
-  register: git_commit
-  when: app_deployed.stat.exists
-
-- name: Clone git repository
-  git:
-    repo: "{{ git_repo }}"
-    dest: "{{ git_path }}"
-    force: yes
-
 - name: Build Vanilla with Phing
   shell: phing
   args:
