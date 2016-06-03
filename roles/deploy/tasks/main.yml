@@ -5,6 +5,14 @@
     path: "{{ project_path }}/index.php"
   register: app_deployed
 
+- name: Clone git repository if necessary
+  include: clone.yml
+  when: app_deployed.stat.exists == False
+
+- name: Backup current app deployment
+  include: backup.yml
+  when: app_deployed.stat.exists
+
 - name: Get hash of current project git commit
   shell: git rev-parse HEAD
   args:
