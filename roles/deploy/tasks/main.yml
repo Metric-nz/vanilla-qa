@@ -13,6 +13,9 @@
   include: backup.yml
   when: app_deployed.stat.exists
 
+- name: Build {{ project_name }} application
+  include: build.yml
+
 - name: Build Vanilla with Phing
   shell: phing
   args:
