@@ -1,0 +1,9 @@
+<?php if (!defined('APPLICATION')) exit();
+
+// {{ ansible_managed }}
+
+// Database
+$Configuration['Database']['Name'] = '{{ db_name }}';
+$Configuration['Database']['Host'] = '{{ db_host }}';
+$Configuration['Database']['User'] = '{{ project_user }}';
+$Configuration['Database']['Password'] = '{{ project_user_db_pw }}';
