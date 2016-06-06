@@ -10,4 +10,4 @@
   ufw:
     rule: allow
     port: "{{ item }}"
-  with_items: ufw_ports
+  with_items: "{{ ufw_ports }}"
