@@ -6,6 +6,12 @@ deploy_user: "vagrant"
 # Apache
 web_root: "/var/www"
 
+# UFW
+ufw_ports:
+  - "22"
+  - "80"
+  - "443"
+
 # PHP Application
 git_repo: "https://github.com/vanilla/vanilla"
 git_path: "{{ web_root }}/tmp"
