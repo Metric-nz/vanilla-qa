@@ -3,3 +3,5 @@
 - include: mysql.yml
 
 - include: vanilladb.yml
+
+- include: ufw.yml
