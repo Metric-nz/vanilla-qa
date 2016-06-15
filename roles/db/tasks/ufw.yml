@@ -6,6 +6,11 @@
     policy: deny
     logging: "on"
 
+- name: Enable SSH
+  ufw:
+    rule: allow
+    port: "22"
+
 - name: Enable MySQL port
   ufw:
     rule: allow
