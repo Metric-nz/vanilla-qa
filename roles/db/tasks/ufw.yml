@@ -1,0 +1,12 @@
+---
+
+- name: Lockdown DB with UFW
+  ufw:
+    state: enabled
+    policy: deny
+    logging: "on"
+
+- name: Enable MySQL port
+  ufw:
+    rule: allow
+    port: "{{mysql_port}}"
