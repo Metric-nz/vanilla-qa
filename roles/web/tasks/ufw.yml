@@ -8,6 +8,6 @@
 
 - name: UFW - Enable ports
   ufw:
-    rule: allow
-    port: "{{ item }}"
+    rule: "{{ item.rule }}"
+    port: "{{ item.port }}"
   with_items: "{{ ufw_ports }}"
