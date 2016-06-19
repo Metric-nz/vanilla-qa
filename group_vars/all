@@ -17,12 +17,3 @@ project_user: "vanillauser"
 project_group: "vanillagroup"
 project_user_pw: "$6$sodiumchloride$24iRTIubgxI1FRbv6AhLMp8PQRYKzcIlb1m34ZZdPpor1fVEjfJaEmWzekpx8wts3gNG4JuvOxBitLmRsYHm70" # 'vanillauser'
 project_user_db_pw: "averysecretpassword"
-
-# Database
-db_host: "{{ hostvars[groups['master_db'][0]]['ansible_host'] }}"
-mysql_root_pw: "supersecretpassword"
-phpmyadmin_pw: "secretphpmyadminpassword"
-
-db_name: "vanilla_test"
-
-mysql_port: "3306"
