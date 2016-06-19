@@ -6,10 +6,11 @@
     policy: deny
     logging: "on"
 
-- name: Enable SSH
+- name: UFW - Enable ports
   ufw:
-    rule: limit
-    port: "22"
+    rule: "{{ item.rule }}"
+    port: "{{ item.port }}"
+  with_items: "{{ ufw_ports }}"
 
 - name: Enable MySQL port
   ufw:
