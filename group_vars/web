@@ -2,9 +2,12 @@
 
 # UFW
 ufw_ports:
+  # SSH
   - port: "22"
     rule: "limit"
+  # HTTP
   - port: "80"
     rule: "allow"
+  # TLS
   - port: "443"
     rule: "allow"
