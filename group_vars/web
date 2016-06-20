@@ -11,3 +11,18 @@ ufw_ports:
   # TLS
   - port: "443"
     rule: "allow"
+
+# Apache
+web_root: "/var/www"
+
+# PHP Application
+git_repo: "https://github.com/vanilla/vanilla"
+git_path: "{{ web_root }}/tmp"
+project_name: "vanilla-forum"
+project_path: "{{ web_root }}/{{ project_name }}"
+log_path: "{{ web_root }}/logs"
+
+project_user: "vanillauser"
+project_group: "vanillagroup"
+project_user_pw: "$6$sodiumchloride$24iRTIubgxI1FRbv6AhLMp8PQRYKzcIlb1m34ZZdPpor1fVEjfJaEmWzekpx8wts3gNG4JuvOxBitLmRsYHm70" # 'vanillauser'
+project_user_db_pw: "averysecretpassword"
