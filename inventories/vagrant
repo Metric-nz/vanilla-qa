@@ -1,13 +1,13 @@
 [web]
-vanillaqa1 ansible_host=172.22.22.21 ansible_user=vagrant
-vanillaqa2 ansible_host=172.22.22.22 ansible_user=vagrant
+vanillaqa1 ansible_host=172.22.22.21
+vanillaqa2 ansible_host=172.22.22.22
 
 [master_db]
-holocron ansible_host=172.22.22.31 ansible_user=vagrant
+holocron ansible_host=172.22.22.31
 
 [slave_db]
-replicron1 ansible_host=172.22.22.32 ansible_user=vagrant
-replicron2 ansible_host=172.22.22.33 ansible_user=vagrant
+replicron1 ansible_host=172.22.22.32
+replicron2 ansible_host=172.22.22.33
 
 [db:children]
 master_db
