@@ -4,8 +4,6 @@ db_host: "{{ hostvars[groups['master_db'][0]]['ansible_host'] }}"
 mysql_root_pw: "supersecretpassword"
 phpmyadmin_pw: "secretphpmyadminpassword"
 
-db_name: "vanilla_test"
-
 mysql_port: "3306"
 
 # UFW

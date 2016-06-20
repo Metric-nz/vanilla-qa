@@ -10,7 +10,7 @@
 - name: Grant access to {{ project_user }}
   mysql_user:
     name: "{{ project_user }}"
-    password: "{{ project_user_db_pw }}"
+    password: "{{ db_password }}"
     state: present
     priv: "{{ db_name }}.*:ALL"
     host: "{{ hostvars[groups['web'][0]]['ansible_host'] }}"
