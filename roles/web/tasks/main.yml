@@ -1,7 +1,5 @@
 ---
 
-- include: ufw.yml
-
 - include: apache.yml
 
 - include: mysql.yml
