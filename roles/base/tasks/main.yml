@@ -31,3 +31,5 @@
     line: "PermitRootLogin no"
     state: present
   notify: restart ssh
+
+- include: ufw.yml
