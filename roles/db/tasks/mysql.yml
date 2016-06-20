@@ -1,5 +1,5 @@
 ---
-  
+
 - name: Set MySQL debconf root password
   debconf:
     name: mysql-server
@@ -15,6 +15,14 @@
     value: "{{ mysql_root_pw }}"
     vtype: password
   changed_when: false
+
+- name: Enable MySQL port in UFW
+  ufw:
+    rule: allow
+    port: "{{mysql_port}}"
+    from_ip: "{{ hostvars[item]['ansible_host'] }}"
+  with_items:
+    - "{{ groups['web'] }}"
 
 - name: Install MySQL
   apt:

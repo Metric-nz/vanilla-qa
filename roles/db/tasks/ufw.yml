@@ -11,11 +11,3 @@
     rule: "{{ item.rule }}"
     port: "{{ item.port }}"
   with_items: "{{ ufw_ports }}"
-
-- name: Enable MySQL port
-  ufw:
-    rule: allow
-    port: "{{mysql_port}}"
-    from_ip: "{{ hostvars[item]['ansible_host'] }}"
-  with_items:
-    - "{{ groups['web'] }}"
