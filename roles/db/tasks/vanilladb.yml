@@ -13,6 +13,8 @@
     password: "{{ db_password }}"
     state: present
     priv: "{{ db_name }}.*:ALL"
-    host: "{{ hostvars[groups['web'][0]]['ansible_host'] }}"
+    host: "{{ hostvars[item]['ansible_host'] }}"
     login_user: "root"
     login_password: "{{ mysql_root_pw }}"
+  with_items:
+    - "{{ groups['web'] }}"
