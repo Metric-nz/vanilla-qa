@@ -5,3 +5,11 @@
   args:
       chdir: "{{ git_path }}"
   register: git_commit
+
+- name: Make backup directory
+  file:
+      path: "{{ web_root }}/backup/{{ git_commit }}"
+      state: directory
+      mode: 0774
+      owner: www-data
+      group: www-data
