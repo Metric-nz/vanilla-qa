@@ -13,3 +13,4 @@
       mode: 0774
       owner: www-data
       group: www-data
+  register: git_backup_path
