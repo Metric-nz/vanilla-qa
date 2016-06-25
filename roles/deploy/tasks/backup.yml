@@ -1,14 +1,14 @@
 ---
 
 - name: Get hash of current project git commit
-  shell: git rev-parse HEAD
+  shell: "git rev-parse --short HEAD"
   args:
       chdir: "{{ git_path }}"
   register: git_commit
 
 - name: Make backup directory
   file:
-      path: "{{ web_root }}/backup/{{ git_commit }}"
+      path: "{{ web_root }}/backup/{{ git_commit.stdout }}"
       state: directory
       mode: 0774
       owner: www-data
