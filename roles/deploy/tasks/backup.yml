@@ -14,3 +14,9 @@
       owner: www-data
       group: www-data
   register: git_backup_path
+
+- debug:
+    var: git_commit
+
+- debug:
+    var: git_backup_path
