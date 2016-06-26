@@ -7,31 +7,3 @@ $Configuration['Database']['Name'] = '{{ db_name }}';
 $Configuration['Database']['Host'] = '{{ db_host }}';
 $Configuration['Database']['User'] = '{{ db_user }}';
 $Configuration['Database']['Password'] = '{{ db_password }}';
-
-// EnabledApplications
-$Configuration['EnabledApplications']['Conversations'] = 'conversations';
-$Configuration['EnabledApplications']['Vanilla'] = 'vanilla';
-
-// EnabledPlugins
-$Configuration['EnabledPlugins']['recaptcha'] = true;
-$Configuration['EnabledPlugins']['GettingStarted'] = 'GettingStarted';
-$Configuration['EnabledPlugins']['HtmLawed'] = 'HtmLawed';
-
-// Garden
-$Configuration['Garden']['Title'] = '{{ project_name }}';
-$Configuration['Garden']['Cookie']['Salt'] = '{{ salty_cookie }}';
-$Configuration['Garden']['Cookie']['Domain'] = '';
-$Configuration['Garden']['Registration']['ConfirmEmail'] = true;
-$Configuration['Garden']['Email']['SupportName'] = '{{ project_name }}';
-$Configuration['Garden']['Email']['Format'] = 'text';
-$Configuration['Garden']['SystemUserID'] = '1';
-$Configuration['Garden']['InputFormatter'] = 'Markdown';
-$Configuration['Garden']['Cdns']['Disable'] = false;
-$Configuration['Garden']['CanProcessImages'] = false;
-$Configuration['Garden']['Installed'] = true;
-
-// Plugins
-$Configuration['Plugins']['GettingStarted']['Dashboard'] = '1';
-
-// Routes
-$Configuration['Routes']['DefaultController'] = 'discussions';
