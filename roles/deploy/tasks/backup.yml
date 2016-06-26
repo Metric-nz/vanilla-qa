@@ -10,7 +10,7 @@
   file:
       path: "{{ web_root }}/backup/{{ git_commit.stdout }}"
       state: directory
-      mode: 0774
+      mode: 0755
       owner: www-data
       group: www-data
   register: git_backup_path
