@@ -2,13 +2,14 @@
 
 - stat:
     path: "{{ git_path }}"
-  register: git_path_status 
+  register: git_path_status
 
 - name: Clone git repository
   git:
     repo: "{{ git_repo }}"
     dest: "{{ git_path }}"
     force: yes
+  when: git_path_status.stat.exists == False
 
 - name: Check that Vanilla Forum directory exists
   file:
