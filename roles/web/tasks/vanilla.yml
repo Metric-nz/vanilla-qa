@@ -9,6 +9,7 @@
     repo: "{{ git_repo }}"
     dest: "{{ git_path }}"
     force: yes
+    version: "{{ git_version }}"
   when: git_path_status.stat.exists == False
 
 - name: Check that Vanilla Forum directory exists
