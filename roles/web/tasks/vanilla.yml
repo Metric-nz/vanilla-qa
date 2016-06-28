@@ -1,5 +1,9 @@
 ---
 
+- stat:
+    path: "{{ git_path }}"
+  register: git_path_status 
+
 - name: Clone git repository
   git:
     repo: "{{ git_repo }}"
