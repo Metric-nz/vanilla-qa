@@ -1,13 +1,5 @@
 ---
 
-- hosts: all
-  roles:
-    - base
-
-- hosts: web
-  roles:
-    - web
-
-- hosts: db
-  roles:
-    - db
+- include: playbooks/base.yml
+- include: playbooks/web.yml
+- include: playbooks/db.yml
