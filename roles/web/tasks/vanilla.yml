@@ -46,12 +46,13 @@
     path: "{{ project_path }}/conf/config.php"
   register: vanilla_config
 
-- name: Apply config template
-  template:
-    src: config.php.j2
-    dest: "{{ project_path }}/conf/config.php"
-    mode: 0777
-  when: vanilla_config.stat.exists == False
+# Deprecated. Config applied by user after install. Comment in template file.
+# - name: Apply config template
+#   template:
+#     src: config.php.j2
+#     dest: "{{ project_path }}/conf/config.php"
+#     mode: 0777
+#   when: vanilla_config.stat.exists == False
 
 - name: Transfer ownership of {{ project_path }} to 'www-data'
   file:
