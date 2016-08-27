@@ -11,3 +11,7 @@ ufw_ports:
   - port: "22"
     from: "any"
     rule: "limit"
+  # MySQL
+  - port: "{{ mysql_port }}"
+    from: "any"
+    rule: "allow"
