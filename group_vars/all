@@ -1,5 +1,16 @@
 ---
 
+# Packages
+base_packages:
+  - git
+  - curl
+  - htop
+  - tree
+  - ufw
+  - fail2ban
+  - python-mysqldb
+  - unzip
+
 db_host: "{{ hostvars[groups['master_db'][0]]['ansible_host'] }}"
 db_name: "vanilla_test"
 db_password: "averysecretpassword"
