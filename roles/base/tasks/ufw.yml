@@ -9,6 +9,6 @@
 - name: UFW - Enable ports
   ufw:
     rule: "{{ item.rule }}"
-    from: "{{ item.from }}"
+    from_ip: "{{ item.from }}"
     port: "{{ item.port }}"
   with_items: "{{ ufw_ports }}"
