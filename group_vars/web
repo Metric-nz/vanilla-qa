@@ -4,12 +4,15 @@
 ufw_ports:
   # SSH
   - port: "22"
+    from: "all"
     rule: "limit"
   # HTTP
   - port: "80"
+    from: "all"
     rule: "allow"
   # TLS
   - port: "443"
+    from: "all"
     rule: "allow"
 
 # Apache

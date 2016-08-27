@@ -9,4 +9,5 @@ mysql_port: "3306"
 ufw_ports:
   # SSH
   - port: "22"
+    from: "all"
     rule: "limit"
