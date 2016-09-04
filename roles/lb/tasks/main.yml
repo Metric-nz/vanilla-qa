@@ -10,3 +10,9 @@
     src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
+
+- name: Start HAProxy service
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
