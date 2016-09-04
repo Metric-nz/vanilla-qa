@@ -1,0 +1,28 @@
+# {{ ansible_managed }}
+
+global
+    maxconn 4096
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log global
+    mode http
+    retries 3
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+listen webcluster *:80
+    mode http
+    stats enable
+    stats auth {{ lb_user }}:{{ lb_password }}
+    balance roundrobin
+    option httpchk HEAD / HTTP/1.0
+    option forwardfor
+    option httpclose
+
+    {% for host in groups['web'] %}
+    server {{ hostvars[host]['ansible_hostname'] }} {{ hostvars[host]['ansible_eth1']['ipv4']['address'] }} check port 80
+    {% endfor %}
