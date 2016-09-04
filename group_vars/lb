@@ -2,3 +2,18 @@
 
 lb_user: "vanillauser"
 lb_password: "averysecretpassword"
+
+# UFW
+ufw_ports:
+  # SSH
+  - port: "22"
+    from: "any"
+    rule: "limit"
+  # HTTP
+  - port: "80"
+    from: "any"
+    rule: "allow"
+  # TLS
+  - port: "443"
+    from: "any"
+    rule: "allow"
