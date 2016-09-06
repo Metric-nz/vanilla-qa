@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
       nodeconfig.vm.provision :shell, inline: "echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys"
       nodeconfig.vm.provider :virtualbox do |v|
         v.name = node[:hostname]
-        v.memory = 1024
+        v.memory = 512
       end
     end
   end
