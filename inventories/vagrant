@@ -1,16 +1,16 @@
 [lb]
-chosen ansible_host=192.168.56.20
+chosen
 
 [web]
-vanillaqa1 ansible_host=192.168.56.21
-vanillaqa2 ansible_host=192.168.56.22
+vanillaqa1
+vanillaqa2
 
 [master_db]
-holocron ansible_host=192.168.56.31
+holocron
 
 [slave_db]
-replicron1 ansible_host=192.168.56.32
-replicron2 ansible_host=192.168.56.33
+replicron1
+replicron2
 
 [db:children]
 master_db
