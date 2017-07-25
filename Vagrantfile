@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
 
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.box = "ubuntu/trusty64"
+      nodeconfig.vm.box = "ubuntu/xenial64"
       nodeconfig.vm.hostname = node
       nodeconfig.vm.network :private_network, type: "dhcp"
       nodeconfig.vm.synced_folder ".", "/vagrant", disabled: true
